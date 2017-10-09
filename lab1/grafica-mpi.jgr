@@ -1,0 +1,12 @@
+newgraph
+   title : Figure 1
+   xaxis 
+      label : MPI #processes
+   yaxis
+      label : Average elapsed time
+
+   newcurve
+      linetype solid
+      marktype none
+      pts
+         include /tmp/experout

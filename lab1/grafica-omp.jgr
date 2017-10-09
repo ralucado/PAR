@@ -1,0 +1,12 @@
+newgraph
+   title : Figure 1
+   xaxis 
+      label : OMP #threads
+   yaxis
+      label : Average elapsed time
+
+   newcurve
+      linetype solid
+      marktype none
+      pts
+         include /tmp/experout
