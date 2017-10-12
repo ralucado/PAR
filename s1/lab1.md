@@ -3,7 +3,7 @@
 * 1
 	* sockets:		2
 	* cores/socket:	6
-	* treads:		2
+	* threads:		2
 
 * 2
 	* machine:		23GB
@@ -12,15 +12,17 @@
 	* DirectMap4k:      318592 kB
 	* DirectMap2M:    15347712 kB
 	* DirectMap1G:     9437184 kB
+
+
 	![](fig1.png)
-	
+
 # Timing sequential and parallel executions
 ## 1.2 Serial compilation and execution
 * 1
 	make pi_seq
 * 2
-	`bash
-	./run-seq.sh pi_seq 1000000000
+
+	`./run-seq.sh pi_seq 1000000000
 	Number pi after 1000000000 iterations = 3.141592653589971
 	7.869109
 	7.86user 0.00system 0:07.87elapsed 99%CPU (0avgtext+0avgdata 1444maxresident)k
@@ -30,8 +32,7 @@
 
 ## 1.3.1 Compiling OpenMP programs
 * 1
-	* `bash
-		pi_omp.c: In function 'main':
+	* `pi_omp.c: In function 'main':
 	pi_omp.c:60:0: warning: ignoring ##pragma omp parallel [-Wunknown-pragmas]
 	     ##pragma omp parallel private(x) firstprivate(sumlocal)
 	 ^
