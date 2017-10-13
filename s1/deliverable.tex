@@ -9,6 +9,8 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{tikz}
 \usepackage{listings}
+\usepackage{subfig}
+\usepackage{float}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -104,23 +106,38 @@
 
 \item[] 3. Plot the speed–up obtained when varying the number of threads (strong scalability) and problemsize (weak scalability) for pi omp.c. Reason about how the scalability of the program.
 
-
-
-
-
+\begin{figure}[H]%
+\centering
+\subfloat{{\includegraphics[width=6cm]{weak.png} }}%
+\qquad
+\subfloat{{\includegraphics[width=6cm]{strong.png} }}%
+\end{figure}
+\begin{itemize}
+\item[] When we are in weak scalability, the speedup does not change so much, it means the scalability is good and we can keep increasing the problem size while increasing the threads and the execution time will not be much greater. In the case of strong scalability, we can see that more than 11 threads start to decrease the speed-up, so it does not have a great strong scalability, with 11 as the optimal number of threads.
+\end{itemize}
 
 \section*{Visualizing the task graph and data dependences}
 
 
 \item[] 4. Include the source code for function dot product in which you show the Tareador instrumentation that has been added to study the potential parallelism in the code. This instrumentation has to appropriately define tasks and filter the analysis of variable(s) that cause the dependence(s).
 
-
-
+%this is too long, better include the code to the archive
+%\lstinputlisting[caption=Scheduler, style=CStyle]{dot_product.c}
+\begin{itemize}
+	\item[] The source code has been added to the archive and is named dot\_product.c
+\end{itemize}
 
 \item[] 5. Capture the task dependence graph for that task decomposition and the execution timelines (for 8 processors) that allow you to understand the potential parallelism attainable. Briefly comment the relevant information that is reported by the tools.
 
-
-
+\begin{figure}[H]%
+\centering
+\subfloat{{\includegraphics[width=18cm]{graph.png} }}%
+\label{fig:test}%
+\end{figure}
+\begin{figure}[H]%
+\centering
+\subfloat{{\includegraphics[width=18cm]{timelines.png} }}%
+\end{figure}
 
 
 
@@ -128,17 +145,17 @@
 
 \section*{Analysis of task decompositions}
 
-\item[] 6. Complete the following table for the initial and different versions generated for 3dfft seq.c, briefly
+\item[] 6. Complete the following table for the initial and different versions generated for 3dfft\_seq.c, briefly
 commenting the evolution of the metrics with the different versions.
 \begin{center}
 \begin{tabular}{| c || c | c | c | }
   \hline
   \textbf{Version} & $T_1$ & $T_{\infty}$ & \textbf{Parallelism}\\ \hline \hline
-  seq &  &  & \\ \hline
-  v1  &  &  & \\ \hline
-  v2  &  &  & \\ \hline
-  v3  &  &  & \\ \hline
-  v4  &  &  & \\
+  seq & 593772 & 593758 & 1.000\\ \hline
+  v1 & 593772 & 593758 & 1.000\\ \hline
+  v2  & 594054 & 315537 & 1.883 \\ \hline
+  v3  &  594054 & 108701 & 5.465\\ \hline
+  v4  & 594054 & 59694 & 9.952 \\
   \hline
 
 \end{tabular}
@@ -152,7 +169,18 @@ estimate from the simulation of the initial task decomposition that we provided 
 using just 1 processor). Briefly comment the scalability behaviour shown on these two plots.
 
 
-
+\begin{figure}[H]%
+\centering
+\includegraphics[width=9cm]{plotTimeCores.png}
+\caption{Execution time in ns }
+\label{fig:test}%
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm]{plotSpeedup.png}
+\caption{Speedup v4 vs. seq}
+\label{fig:Speedup plot}%
+\end{figure}
 
 
 
