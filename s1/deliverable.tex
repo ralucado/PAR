@@ -171,18 +171,20 @@ using just 1 processor). Briefly comment the scalability behaviour shown on thes
 
 \begin{figure}[H]%
 \centering
-\includegraphics[width=9cm]{plotTimeCores.png}
+\includegraphics[width=12cm]{plotTimeCores.png}
 \caption{Execution time in ns }
 \label{fig:test}%
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=9cm]{plotSpeedup.png}
+\includegraphics[width=12cm]{plotSpeedup.png}
 \caption{Speedup v4 vs. seq}
 \label{fig:Speedup plot}%
 \end{figure}
 
-
+\begin{itemize}
+	\item[] As we can see in the plots, the scalability is bad. The maximum number of cores we can use at the same time are 16, more than that do not help the execution time.
+\end{itemize}
 
 \section* {Tracing sequential and parallel executions}
 
@@ -192,6 +194,16 @@ file, obtain the value of the parallel fraction φ for this program when execute
 iterations, showing the steps you followed to obtain it. Clearly indicate which Paraver configuration
 file(s) did you use.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{ex8.png}
+\caption{Parallel fraction of the code}
+\label{fig:Parallel duration}%
+\end{figure}
+
+\begin{itemize}
+	\item[] The parallel fraction of this program is the parallel duration * 100 / the total duration. The value of the fraction is: 58.4\% This was obtained using the APP\_userevents configuration. 
+\end{itemize}
 
 
 \item[] 9. From the instrumented version of pi omp.c, and using the appropriate Paraver configuration file,
@@ -199,7 +211,16 @@ show a profile of the \% of time spent in the different OpenMP states when using
 100.000.000 iterations. Clearly indicate which Paraver configuration file(s) did you use and your
 own conclusions from that profile.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{ex9.png}
+\caption{Time spent in the different states of OMP}
+\label{fig:Parallel duration}%
+\end{figure}
 
+\begin{itemize}
+	\item[] This was obtained using the OMP\_state\_profile configuration. 
+\end{itemize}
 
 
 \end{enumerate}
